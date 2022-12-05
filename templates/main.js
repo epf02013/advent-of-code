@@ -20,7 +20,7 @@ const part2 = (filename, debug = false) => {
 };
 
 function runPartOnFile({ part, filename, debug, correctAnswer }) {
-  console.log("\n\n\nrunning " + part.name + " on sample.txt ");
+  console.log(`\nrunning ${part.name} on `, filename);
   const answer = part(filename, debug);
   console.log(`\nanswerfor ${part.name} on ${filename}:`, answer);
   if (correctAnswer && answer !== correctAnswer) {
