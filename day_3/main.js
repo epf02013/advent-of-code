@@ -1,14 +1,7 @@
 const fs = require("fs");
-const countLetters = (line) =>
-  line.split("").reduce((acc, curr) => {
-    const res = { ...acc };
-    if (res[curr]) {
-      res[curr] += 1;
-    } else {
-      res[curr] = 1;
-    }
-    return res;
-  }, {});
+const { countLetters, uniqueLetters } = require("../utilities/string");
+const { tally, merge, chunk } = require("../utilities/array");
+const { findKeyForValue } = require("../utilities/hash");
 
 const parseLine = (line) => {
   const leftContainer = line.slice(0, line.length / 2);
@@ -36,35 +29,16 @@ const part1 = (filename, debug = false) => {
   const keyCodes = commonKeys.map(getIntOfLetter);
   return keyCodes.reduce((acc, curr) => acc + curr, 0);
 };
-const splitIntoGroupsOfThree = ([acc, count], curr) => {
-  if (count === 2) {
-    acc.push([curr]);
-    const newVar = [acc, 0];
-    return newVar;
-  }
-  acc[acc.length - 1].push(curr);
-  return [acc, count + 1];
-};
-const getCommonKeysOfLines = (lines) => {
-  const foundKeys = {};
-  lines.forEach((line) => {
-    const uniqueKeys = {};
-    line.split("").forEach((c) => (uniqueKeys[c] = 1));
-    Object.keys(uniqueKeys).forEach((k) => {
-      if (foundKeys[k]) {
-        foundKeys[k] += 1;
-      } else {
-        foundKeys[k] = 1;
-      }
-    });
-  });
-  return Object.entries(foundKeys).find(([k, count]) => count === 3)[0];
-};
 const part2 = (filename, debug = false) => {
-  const lines = fs.readFileSync(filename).toString().split("\n");
-  const data = lines.reduce(splitIntoGroupsOfThree, [[[]], -1])[0];
-  return data
-    .map(getCommonKeysOfLines)
+  const linesWithUniqueLetters = fs
+    .readFileSync(filename)
+    .toString()
+    .split("\n")
+    .map(uniqueLetters);
+  return chunk(3)(linesWithUniqueLetters)
+    .map(merge)
+    .map(tally)
+    .map(findKeyForValue(3))
     .map(getIntOfLetter)
     .reduce((acc, curr) => acc + curr, 0);
 };
