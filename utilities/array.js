@@ -21,8 +21,10 @@ const chunk = (chunkSize) => (arr) => {
   }
   return res;
 };
+const uniqueElements = (arr) => Object.keys(tally(arr))
 module.exports = {
   tally,
   merge,
   chunk,
+    uniqueElements
 };
