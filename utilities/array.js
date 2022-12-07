@@ -21,10 +21,13 @@ const chunk = (chunkSize) => (arr) => {
   }
   return res;
 };
-const uniqueElements = (arr) => Object.keys(tally(arr))
+const uniqueElements = (arr) => Object.keys(tally(arr));
+const sum = (arr) => arr.reduce((acc, curr) => acc + curr, 0);
+
 module.exports = {
   tally,
   merge,
   chunk,
-    uniqueElements
+  uniqueElements,
+  sum,
 };
