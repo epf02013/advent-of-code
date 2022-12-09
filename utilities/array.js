@@ -1,6 +1,6 @@
 const tally = (arr) =>
   arr.reduce((acc, curr) => {
-    const res = { ...acc };
+    const res = acc;
     if (res[curr]) {
       res[curr] += 1;
     } else {
