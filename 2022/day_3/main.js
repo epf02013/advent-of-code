@@ -1,7 +1,7 @@
 const fs = require("fs");
-const { countLetters, uniqueLetters } = require("../utilities/string");
-const { tally, merge, chunk } = require("../utilities/array");
-const { findKeyForValue } = require("../utilities/hash");
+const { countLetters, uniqueLetters } = require("../../utilities/string");
+const { tally, merge, chunk } = require("../../utilities/array");
+const { findKeyForValue } = require("../../utilities/hash");
 
 const parseLine = (line) => {
   const leftContainer = line.slice(0, line.length / 2);

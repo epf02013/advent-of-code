@@ -1,5 +1,5 @@
 const fs = require("fs");
-const { sum } = require("../utilities/array");
+const { sum } = require("../../utilities/array");
 
 const parseFile = (filename, debug) => {
   const data = fs

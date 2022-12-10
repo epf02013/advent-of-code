@@ -1,23 +1,20 @@
 const fs = require("fs");
-const {uniqueElements} = require("../utilities/array");
+const { uniqueElements } = require("../../utilities/array");
 
 const parseFile = (filename, debug) => {
-  const data = fs
-    .readFileSync(filename)
-    .toString()
-    .split("\n")[0].split("")
+  const data = fs.readFileSync(filename).toString().split("\n")[0].split("");
   if (debug) console.log("parsed  file data:", data);
   return data;
 };
 const part1 = (filename, debug = false) => {
   const data = parseFile(filename, debug);
   let uniqueLetterCount = 4;
-  const last4 = data.slice(0,uniqueLetterCount)
-  for (let index = uniqueLetterCount; index < data.length; index++){
-    if(uniqueElements(last4).length ===uniqueLetterCount) return index
+  const last4 = data.slice(0, uniqueLetterCount);
+  for (let index = uniqueLetterCount; index < data.length; index++) {
+    if (uniqueElements(last4).length === uniqueLetterCount) return index;
     const letter = data[index];
-    last4.shift()
-    last4.push(letter)
+    last4.shift();
+    last4.push(letter);
   }
   throw "oops shouldnt have gotten here";
 };
@@ -25,12 +22,12 @@ const part1 = (filename, debug = false) => {
 const part2 = (filename, debug = false) => {
   const data = parseFile(filename, debug);
   let uniqueLetterCount = 14;
-  const last14 = data.slice(0,uniqueLetterCount)
-  for (let index = uniqueLetterCount; index < data.length; index++){
-    if(uniqueElements(last14).length ===uniqueLetterCount) return index
+  const last14 = data.slice(0, uniqueLetterCount);
+  for (let index = uniqueLetterCount; index < data.length; index++) {
+    if (uniqueElements(last14).length === uniqueLetterCount) return index;
     const letter = data[index];
-    last14.shift()
-    last14.push(letter)
+    last14.shift();
+    last14.push(letter);
   }
 };
 

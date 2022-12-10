@@ -1,5 +1,5 @@
 const fs = require("fs");
-import { uniqueElements } from "../utilities/array";
+import { uniqueElements } from "../../utilities/array";
 
 type Direction = "U" | "R" | "D" | "L";
 type MoveCommand = { direction: Direction; distance: number };

@@ -1,5 +1,5 @@
 const fs = require("fs");
-const { chunk } = require("../utilities/array");
+const { chunk } = require("../../utilities/array");
 
 const parseFile = (filename, debug) => {
   const data = fs

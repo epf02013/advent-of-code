@@ -1,5 +1,5 @@
 const fs = require("fs");
-const { chunk } = require("../utilities/array");
+const { chunk } = require("../../utilities/array");
 const parseMove = (moveStr) => {
   const regex = /(\d+).*(\d+).*(\d+)/;
   const [_, numToMove, startColumn, endColumn] = moveStr.match(regex);
