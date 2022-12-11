@@ -1,1 +1,1 @@
-pbpaste > day_$1/input.txt
+pbpaste > 202$1/day_$2/input.txt

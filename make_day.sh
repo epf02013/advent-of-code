@@ -1,10 +1,10 @@
-mkdir day_$1
+mkdir 202$1/day_$2
 
-cp templates/main.js day_$1/
+cp templates/main.js 202$1/day_$2/
 
-touch day_$1/sample.txt
-touch day_$1/input.txt
+touch 202$1/day_$2/sample.txt
+touch 202$1/day_$2/input.txt
 
 echo "adding sample.txt base on copied value"
-pbpaste > day_$1/sample.txt
+pbpaste > 202$1/day_$2/sample.txt
 
