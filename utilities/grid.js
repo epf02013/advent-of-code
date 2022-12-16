@@ -50,4 +50,5 @@ const gridNeighboursWithBounds = (
 };
 module.exports = {
   gridNeighbours,
+  addPoints,
 };
